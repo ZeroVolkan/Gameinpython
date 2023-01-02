@@ -9,25 +9,23 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-
+TILE = base.Tile()
 
 def main():
-
-    TileSet = base.TileSet((0, 0), (50, 50), wight=200, height=200)
-    TileSet.add_object(base.Tile((1, 2)))
-
     while True:
-
         screen.fill(BLACK)
         clock.tick(options.FPS)
 
+        TileSet = base.TileSet(pos=(0, 0), tile=(50, 50))
+        TileSet.add_object(TILE, pos=(3, 2))
+        TileSet.add_object(TILE, pos=(5, 2))
+        TileSet.add_object(TILE, pos=(3, 3))
+        TileSet.add_object(TILE, pos=(7, 2))
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
 
         TileSet.render()
-
-
         pg.display.flip()
 
 
