@@ -1,7 +1,7 @@
 from init import *
 import pygame as pg
 import options
-import base
+import tile
 
 
 BLACK = (0, 0, 0)
@@ -9,14 +9,14 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
-TILE = base.Tile()
+TILE = tile.Tile()
 
 def main():
     while True:
         screen.fill(BLACK)
         clock.tick(options.FPS)
 
-        TileSet = base.TileSet(pos=(0, 0), tile=(50, 50))
+        TileSet = tile.TileSet(pos=(0, 0), tile=(50, 50))
         TileSet.add_object(TILE, pos=(3, 2))
         TileSet.add_object(TILE, pos=(5, 2))
         TileSet.add_object(TILE, pos=(3, 3))
