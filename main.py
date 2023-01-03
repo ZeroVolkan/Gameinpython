@@ -1,31 +1,30 @@
-from init import *
+import sys
 import pygame as pg
+from init import *
 import options
 import tile
+import body
 
-
-BLACK = (0, 0, 0)
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-TILE = tile.Tile()
 
 def main():
+
+    body1 = body.Body(pos=(30, 30), wight=100, height=100, color=options.WHITE)
+    body2 = body.Body(pos=(60, 60), wight=100, height=100, color=options.RED)
+    collision = body.Collision()
+    print(collision.body(body1, body2))
+    print(collision.body(body2, body1))
     while True:
-        screen.fill(BLACK)
+        screen.fill(options.BLACK)
         clock.tick(options.FPS)
 
-        TileSet = tile.TileSet(pos=(0, 0), tile=(50, 50))
-        TileSet.add_object(TILE, pos=(3, 2))
-        TileSet.add_object(TILE, pos=(5, 2))
-        TileSet.add_object(TILE, pos=(3, 3))
-        TileSet.add_object(TILE, pos=(7, 2))
+        body1.render()
+        body2.render()
+
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()
+                sys.exit()
 
-        TileSet.render()
         pg.display.flip()
 
 
