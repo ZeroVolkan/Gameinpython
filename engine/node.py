@@ -1,8 +1,5 @@
-import engine.init as init
 import engine.effect as effect
-import engine.signal
 import engine.signal as signal
-import pygame as pg
 
 
 class Node:
@@ -54,11 +51,4 @@ class Body(Node):
 
         self.wight = wight
         self.height = height
-
         self.color = color
-
-    def render(self):
-
-        rect = pg.Rect(self.x, self.y, self.wight, self.height)
-        pg.draw.rect(init.screen, self.color, rect)
-

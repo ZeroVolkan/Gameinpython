@@ -10,7 +10,7 @@ def main():
     gravity = engine.effect.Gravity("gravity")
     stop_gravity = engine.effect.StopEffectIfSignal("stop_gravity", "gravity", "collision")
 
-    space = engine.space.Space(pos=(0, 0))
+    space = engine.space.Space(pos=(0, 0), wight=1000, height=1000)
     space.add_effect(collision)
 
     body1 = engine.node.Body(pos=(0, 0), wight=100, height=100)
@@ -22,11 +22,8 @@ def main():
 
     while True:
         engine.screen.fill(engine.options.BLACK)
-        engine.clock.tick(engine.options.FPS)
-
-        body1.render()
-        body2.render()
         space.next_state()
+
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 pg.quit()

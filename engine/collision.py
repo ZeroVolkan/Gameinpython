@@ -2,7 +2,6 @@ import engine.node as node
 import engine.space as space
 import engine.signal as signal
 import engine.effect as effect
-import pygame as pg
 
 
 class Collision(effect.Effect):

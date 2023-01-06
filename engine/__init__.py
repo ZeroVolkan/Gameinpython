@@ -1,11 +1,6 @@
 import pygame as pg
 import engine.options as options
 
-
-global clock
-global screen
-pg.init()
-
 from engine.init import *
 
 import engine.node as node

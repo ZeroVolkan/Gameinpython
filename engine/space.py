@@ -1,11 +1,23 @@
 import engine.node as node
+import pygame as pg
 
 
 class Space(node.Node):
-    def __init__(self, pos: tuple[int, int]):
+    def __init__(self, pos: tuple[int, int], wight: int, height: int, flipped: bool = True, name: str = "",
+                 fps: int = 30):
         super().__init__(pos)
+        self.name = name
+
+        self.wight = wight
+        self.height = height
+        self.flipped = flipped
 
         self.nodes = []
+
+        self.clock = pg.time.Clock()
+        self.FPS = fps
+        self.screen = pg.display.set_mode((self.wight, self.height))
+        pg.display.set_caption(self.name)
 
     def add_node(self, node: node.Node):
         self.nodes.append(node)
@@ -23,3 +35,4 @@ class Space(node.Node):
         self.signals.clear()
         for stop in self.stopping:
             del self.effects[stop]
+        self.clock.tick(self.FPS)

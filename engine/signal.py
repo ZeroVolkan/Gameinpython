@@ -1,4 +1,3 @@
-
 class Signal:
     def __init__(self, node, name: str = ""):
         self.name = name
