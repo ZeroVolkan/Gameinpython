@@ -21,7 +21,7 @@ def main():
     body1.add_effect(stop_gravity)
 
     while True:
-        engine.screen.fill(engine.options.BLACK)
+        space.screen.fill(engine.options.BLACK)
         space.next_state()
 
         for event in pg.event.get():
