@@ -14,7 +14,7 @@ def main():
     space.add_effect(collision)
 
     body1 = engine.node.Body(pos=(0, 0), wight=100, height=100)
-    body2 = engine.node.Body(pos=(20, 400), wight=100, height=100, color=engine.options.RED)
+    body2 = engine.node.Body(pos=(0, 400), wight=100, height=100, color=engine.options.RED)
 
     space.add_nodes([body1, body2])
     body1.add_effect(gravity)
@@ -23,6 +23,7 @@ def main():
     while True:
         engine.screen.fill(engine.options.BLACK)
         engine.clock.tick(engine.options.FPS)
+
         body1.render()
         body2.render()
         space.next_state()

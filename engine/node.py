@@ -23,7 +23,6 @@ class Node:
             if self.effects.get(stop):
                 del self.effects[stop]
 
-
     def add_effect(self, effect: effect.Effect):
         self.effects.setdefault(effect.name, effect)
 

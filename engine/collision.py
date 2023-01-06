@@ -2,6 +2,7 @@ import engine.node as node
 import engine.space as space
 import engine.signal as signal
 import engine.effect as effect
+import pygame as pg
 
 
 class Collision(effect.Effect):
@@ -19,11 +20,11 @@ class Collision(effect.Effect):
     def activate(self, space: space.Space):
         ln = len(space.nodes)
         for i in range(ln):
-            for j in range(ln - i):
-                if self.body(space.nodes[i + j], space.nodes[j]):
-                    space.nodes[i + j].add_signal(
-                        signal.Signal(space.nodes[i], name=self.name)
+            for j in range(i + 1, ln):
+                if self.body(space.nodes[i], space.nodes[j]):
+                    space.nodes[i].add_signal(
+                        signal.Signal(space.nodes[j], name=self.name)
                     )
                     space.nodes[j].add_signal(
-                        signal.Signal(space.nodes[j + i], name=self.name)
+                        signal.Signal(space.nodes[i], name=self.name)
                     )
